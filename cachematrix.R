@@ -48,7 +48,7 @@ cacheSolve <- function(x, ...) {
     return(cache)
   }
   
-  # create matri since it doesn't eist 
+  # create inverse matrix if it doesn't exist 
   data<- x$get()
   
   # set and return inverse of matrix
