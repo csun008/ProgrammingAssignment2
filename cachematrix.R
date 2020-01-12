@@ -1,29 +1,11 @@
-## cachematrix.R - Assignment for R-Programming
+## cachematrix.R - Assignment for R-Programming (Week 3)
 ## csun008 (Changmin Sun)
 ## 1 Nov 2020. 
 ##
 ## The following functions work together to create a square invertible matrix
 ## and make the inverse of the matrix available in the cache environment
-##
-## Sample run-time example included results
-## > source("cachematrix.R")    load R program
-## > a <- makeCacheMatrix()     create functions
-## > a$set(matrix(5:8, 2, 2))   create matrix in working environment
-## > cacheSolve(a)              1st run returns inverted matrix
-##                              from working environment
-## [,1] [,2]
-## [1,]   -4  3.5
-## [2,]    3 -2.5
-##
-## > cacheSolve(a)              2nd and subsequent runs
-##                              returns inverted matrix from cache
-## getting cached data          
-## [,1] [,2]
-## [1,]   -4  3.5
-## [2,]    3 -2.5
 
-
-## makeCacheMatrix creates and returns a list of functions
+## makeCacheMatrix function creates and returns a list of functions
 ## used by cacheSolve to get or set the inverted matrix in cache
 
 
@@ -78,3 +60,26 @@ cacheSolve <- function(x, ...) {
   #display inverted matrix in console
   return(cache)
 }
+
+
+## Sample run-time example included results
+## > source("cachematrix.R")    load R program
+## > m1<- matrix(c(1/2, -1/4, -1, 3/4),nrow=2,ncol=2) 
+##                                      test data provided by course mentor Alan
+## >m1
+##       [,1]  [,2]
+## [1,]  0.50 -1.00
+## [2,] -0.25  0.75
+## > myTestMatrix <- makeCacheMatrix(m1)     create matrix in working environment
+## > cacheSolve(myTestMatrix)   1st run returns inverted matrix
+##                              from working environment
+##        [,1] [,2]
+## [1,]    6    8
+## [2,]    2    4
+##
+## > cacheSolve(myTestMatrix)   2nd and subsequent runs
+##                              returns inverted matrix from cache
+## getting cached data          
+##        [,1] [,2]
+## [1,]    6    8
+## [2,]    2    4
